@@ -1,0 +1,29 @@
+﻿@model KursKayitDTO
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Kurs Kayıt Güncelleme</h2>
+<hr />
+
+<form asp-controller="KursKayit" asp-action="Edit" method="post">
+    <div class="mb-3">
+        <input type="hidden" asp-for="KayitId"/>
+        <label asp-for="OgrenciId" class="form-label">Öğrenci</label>
+        <select asp-for="OgrenciId" asp-items="@ViewBag.Ogrenciler" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+        <span asp-validation-for="OgrenciId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="KursId" class="form-label">Kurs</label>
+        <select asp-for="KursId" asp-items="@ViewBag.Kurslar" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+        <span asp-validation-for="KursId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>
+

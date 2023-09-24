@@ -1,0 +1,14 @@
+﻿@model KursKayitDTO
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<p>
+    <b> @Model.Ogrenci.OgrenciAd @Model.Ogrenci.OgrenciSoyad</b> isimli öğrencinin <b>@Model.KayitTarihi</b> tarihinde katıldığı <b>@Model.Kurs.Baslik</b> isimli kurs kaydını silmek istiyor musunuz?
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="KayitId" />
+        <button type="submit" class="btn btn-danger">Evet</button>
+        <a asp-action="Index" class="btn btn-primary">Hayır</a>
+    </form>
+</p>

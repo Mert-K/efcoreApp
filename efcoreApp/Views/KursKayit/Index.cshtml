@@ -1,0 +1,40 @@
+﻿@model IEnumerable<KursKayit>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Kayıt Listesi</h2>
+<a asp-action="Create" class="btn btn-primary">Kayıt Ekle</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width:150px;">@Html.DisplayNameFor(x=>x.KayitId)</th>
+            <th>@Html.DisplayNameFor(x=>x.Ogrenci.OgrenciAd)</th>
+            <th>@Html.DisplayNameFor(x=>x.Kurs.Baslik)</th>
+            <th style ="width:150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x=>item.KayitId)</td>
+                <td>@Html.DisplayFor(x=>item.Ogrenci.AdSoyad)</td>
+                <td>@Html.DisplayFor(x=>item.Kurs.Baslik)</td>
+                <td>
+                    <a asp-controller="KursKayit" asp-action="Edit" asp-route-id="@item.KayitId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-controller="KursKayit" asp-action="Delete" asp-route-id="@item.KayitId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+

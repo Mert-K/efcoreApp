@@ -1,0 +1,24 @@
+﻿@model KursViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Kurs Ekle</h2>
+<hr />
+
+<form asp-controller="Kurs" asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label">Baslik</label>
+        <input asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="OgretmenId" class="form-label">Öğretmen</label>
+        <select asp-for="OgretmenId" asp-items="ViewBag.selectListItems" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+        <span asp-validation-for="OgretmenId"></span>
+    </div>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>
